@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Network | justciencia</title>
-<meta name="description" content="First-generation scientists who lift each other up. Everyone here has been interviewed and published by justciencia.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="A members-only network of first-generation scientists who lift each other up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/network.css">
@@ -17,11 +19,32 @@
     <a id="nav-scientists" href="https://justciencia.com">Scientists</a>
     <a id="nav-about" href="https://justciencia.com/about/">About</a>
     <a class="current" href="#" aria-current="page">Network</a>
+    <button type="button" class="link-btn" id="signout" hidden>Sign out on this device</button>
   </nav>
 </header>
 
 <div id="demo-banner" class="demo" hidden>Demo mode: these are fake people and nothing you send leaves this page. Add your script URL in <code>config.js</code> to go live.</div>
 
+<section id="gate" class="hero gate" hidden>
+  <div class="hero-text">
+    <p class="eyebrow">The network</p>
+    <h1>A members-only network of first-gen scientists.</h1>
+    <p class="lede" id="gate-lede">Everyone in the network has been interviewed and published by justciencia, and has pledged to help the people coming up behind them. The list is for members only.</p>
+    <p class="gate-count" id="gate-count" hidden></p>
+    <p id="gate-msg" class="error" role="alert" hidden></p>
+    <div class="gate-actions">
+      <a class="btn orange" id="gate-join" href="https://justciencia.com">Nominate a scientist</a>
+      <a class="btn ghost" id="gate-site" href="https://justciencia.com">Meet the scientists</a>
+    </div>
+    <p class="muted small" id="gate-lost" hidden>Already a member and lost your link? Email <a id="gate-mail" href="#"></a>.</p>
+  </div>
+  <div class="pledge">
+    <p class="pledge-label">Our pledge</p>
+    <p class="pledge-text">When I am able to, I will help the people coming up behind me.</p>
+  </div>
+</section>
+
+<div id="app" hidden>
 <section class="hero">
   <div class="hero-text">
     <p class="eyebrow">The network</p>
@@ -59,7 +82,7 @@
     <button type="button" class="link-btn" id="clear" hidden>Clear all filters</button>
     <div class="privacy-note">
       <strong>Your privacy comes first</strong>
-      Emails and phone numbers are never shown. Every request goes through justciencia, and members can pause at any time.
+      Emails and phone numbers are never shown. Every request goes through justciencia, and members can pause at any time. Please do not share this list or your link.
     </div>
   </aside>
 
@@ -80,18 +103,19 @@
   </main>
 </div>
 
+</div>
+
 <dialog id="dlg" aria-labelledby="dlg-title">
   <form id="req-form" method="dialog" novalidate>
     <h2 id="dlg-title">Request an intro</h2>
     <p class="muted" id="dlg-sub"></p>
+    <p class="muted small" id="dlg-from"></p>
     <input type="hidden" id="f-member">
     <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" id="f-website" tabindex="-1" autocomplete="off"></label></div>
-    <div class="field"><label for="f-name">Your name</label><input id="f-name" required maxlength="100" autocomplete="name"></div>
-    <div class="field"><label for="f-email">Your email</label><input id="f-email" type="email" required maxlength="150" autocomplete="email"></div>
     <div class="field"><label for="f-msg">What would you like help with?</label>
       <textarea id="f-msg" required maxlength="600" rows="5" placeholder="A few sentences: who you are, your field, and what you hope to ask."></textarea>
       <span class="muted small"><span id="f-count">0</span>/600</span></div>
-    <label class="check"><input type="checkbox" id="f-consent" required> <span>I understand justciencia will review this and forward it to the member. They are not obligated to reply.</span></label>
+    <label class="check"><input type="checkbox" id="f-consent" required> <span>I understand justciencia reviews this before passing it on, and the member is not obligated to reply. I will keep their details private and not share the list.</span></label>
     <p id="form-error" class="error" role="alert" hidden></p>
     <div class="actions">
       <button type="button" class="btn ghost" id="dlg-cancel">Cancel</button>
