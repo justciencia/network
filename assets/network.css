@@ -106,3 +106,5 @@ dialog .field{margin-top:16px}
 .gate-actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 18px}
 .top nav .link-btn{font-weight:400;color:var(--ink-soft);font-size:14px}
 #gate-msg{font-size:15px}
+.gate h1{font-size:clamp(32px,4.2vw,52px)}
+.gate-question{margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(20px,2.2vw,26px);line-height:1.35;color:var(--orange-dark)}

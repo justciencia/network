@@ -25,7 +25,7 @@ page with a headcount and no names.
 With `config.js` empty, the page uses fake data and sends nothing.
 
     python3 -m http.server 8000
-    http://localhost:8000/             -> the locked page (fake headcount)
+    http://localhost:8000/             -> the welcome page (fake headcount)
     http://localhost:8000/?key=demo    -> the members area with fake people
 
 ## Step 2. Create the backend (new Sheet, new script)

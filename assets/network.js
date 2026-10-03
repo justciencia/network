@@ -27,7 +27,7 @@
   // ---- links back to the main site ----
   $('logo').href = main; $('nav-scientists').href = main; $('nav-about').href = main + '/about/';
   $('nominate').href = main + '/#nominate'; $('gate-join').href = main + '/#nominate'; $('gate-site').href = main;
-  if (CFG.contactEmail) { $('gate-mail').textContent = CFG.contactEmail; $('gate-mail').href = 'mailto:' + CFG.contactEmail; $('gate-lost').hidden = false; }
+  if (CFG.contactEmail) { $('gate-mail').textContent = CFG.contactEmail; $('gate-mail').href = 'mailto:' + CFG.contactEmail; $('gate-lost-extra').hidden = false; }
 
   // ---- key handling: take it from the link, keep it on this device, remove it from the address bar ----
   function storeGet() { try { return localStorage.getItem(STORE_KEY) || ''; } catch (e) { return ''; } }
@@ -52,7 +52,6 @@
   function showGate(msg) {
     $('app').hidden = true; $('gate').hidden = false; $('signout').hidden = true;
     var m = $('gate-msg'); m.textContent = msg || ''; m.hidden = !msg;
-    $('gate-lost').hidden = !CFG.contactEmail;
     // public teaser: counts only, never names
     var done = function (d) {
       if (d && d.ok && d.count > 0) {
@@ -80,7 +79,7 @@
   function load(key) {
     if (!key) { showGate(); return; }
     if (DEMO) {
-      if (key !== 'demo') { storeClear(); showGate('This link is not valid. In demo mode, use index.html?key=demo'); return; }
+      if (key !== 'demo') { storeClear(); showGate('That link is not working. In demo mode, use index.html?key=demo'); return; }
       fetch('data/sample-members.json').then(function (r) { return r.json(); }).then(function (d) {
         state.key = key; state.all = normalize(d.members); state.me = { id: 'demo', firstName: 'there' }; showApp();
       }).catch(function () { showGate('Could not load the demo data. Serve this folder with a local web server.'); });
@@ -88,7 +87,7 @@
     }
     fetch(apiUrl({ action: 'members', key: key })).then(function (r) { return r.json(); }).then(function (d) {
       if (d && d.ok) { state.key = key; state.all = normalize(d.members); state.me = d.me || null; showApp(); }
-      else { storeClear(); showGate('That link is not valid or has been turned off. Please use the personal link from your welcome email.'); }
+      else { storeClear(); showGate('That link is not working. Please use the personal link from your welcome email, or get in touch and we will send a new one.'); }
     }).catch(function () { showGate('The network could not load right now. Please try again in a few minutes.'); });
   }
 
@@ -179,7 +178,7 @@
     buildChips(); render();
   });
   $('signout').addEventListener('click', function () {
-    storeClear(); state.key = ''; state.all = []; state.me = null; showGate('You have signed out on this device. Use your personal link to come back.');
+    storeClear(); state.key = ''; state.all = []; state.me = null; showGate('You have signed out on this device. Open your personal link to come back.');
   });
 
   // ---- request dialog (the requester is identified by their key, so no name or email needed) ----
