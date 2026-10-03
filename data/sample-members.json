@@ -1,0 +1,8 @@
+{"members":[
+{"id":"s1","name":"Sample Member A","role":"Process engineer","company":"Sample Company","field":"Chemical engineering","industry":"Energy","stage":"Industry","region":"Texas","openTo":["Referrals","Resume review"],"status":"Open","storyUrl":"","linkedin":""},
+{"id":"s2","name":"Sample Member B","role":"Scientist","company":"Sample Biotech","field":"Biology","industry":"Biotech","stage":"Industry","region":"California","openTo":["Quick chat","Speaking"],"status":"Open","storyUrl":"","linkedin":""},
+{"id":"s3","name":"Sample Member C","role":"Assistant professor","company":"Sample University","field":"Materials science","industry":"Academia","stage":"Postdoc or faculty","region":"Illinois","openTo":["Mentoring","Quick chat"],"status":"Open","storyUrl":"","linkedin":""},
+{"id":"s4","name":"Sample Member D","role":"Data scientist","company":"Sample Company","field":"Data science","industry":"Technology","stage":"Industry","region":"Washington","openTo":["Referrals"],"status":"Paused","storyUrl":"","linkedin":""},
+{"id":"s5","name":"Sample Member E","role":"PhD student","company":"Sample University","field":"Chemistry","industry":"Academia","stage":"In school","region":"California","openTo":[],"status":"Open","storyUrl":"","linkedin":""},
+{"id":"s6","name":"Sample Member F","role":"Undergraduate","company":"Sample College","field":"Environmental science","industry":"Academia","stage":"In school","region":"Arizona","openTo":[],"status":"Open","storyUrl":"","linkedin":""}
+]}
